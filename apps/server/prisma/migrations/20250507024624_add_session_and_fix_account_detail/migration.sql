@@ -1,9 +1,10 @@
--- AlterTable
-ALTER TABLE `guru` MODIFY `NIP` VARCHAR(191) NULL,
+-- NOTE: table names must match the ones created in the initial migration (`Guru` / `Kepala_Sekolah`)
+-- Use capitalized names to avoid issues on case-sensitive MySQL filesystems.
+ALTER TABLE `Guru` MODIFY `NIP` VARCHAR(191) NULL,
     MODIFY `tanda_tangan` VARCHAR(191) NULL;
 
 -- AlterTable
-ALTER TABLE `kepala_sekolah` ADD COLUMN `tanda_tangan` VARCHAR(191) NULL,
+ALTER TABLE `Kepala_Sekolah` ADD COLUMN `tanda_tangan` VARCHAR(191) NULL,
     MODIFY `NIP` VARCHAR(191) NULL;
 
 -- CreateTable
