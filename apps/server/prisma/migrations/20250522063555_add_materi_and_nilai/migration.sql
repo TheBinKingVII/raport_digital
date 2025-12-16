@@ -19,4 +19,6 @@ CREATE TABLE `Nilai_Materi` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- AddForeignKey
-ALTER TABLE `Materi` ADD CONSTRAINT `Materi_id_kelas_id_mata_pelajaran_fkey` FOREIGN KEY (`id_kelas`, `id_mata_pelajaran`) REFERENCES `Mata_Pelajaran_Kelas`(`id_kelas`, `id_mata_pelajaran`) ON DELETE RESTRICT ON UPDATE CASCADE;
+-- Ensure the column order in the FK matches the primary key on `Mata_Pelajaran_Kelas`,
+-- which is defined as PRIMARY KEY (`id_mata_pelajaran`, `id_kelas`)
+ALTER TABLE `Materi` ADD CONSTRAINT `Materi_id_kelas_id_mata_pelajaran_fkey` FOREIGN KEY (`id_mata_pelajaran`, `id_kelas`) REFERENCES `Mata_Pelajaran_Kelas`(`id_mata_pelajaran`, `id_kelas`) ON DELETE RESTRICT ON UPDATE CASCADE;
