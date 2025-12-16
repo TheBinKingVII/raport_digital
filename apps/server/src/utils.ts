@@ -1,22 +1,22 @@
-import { $Enums, Prisma } from '@prisma/client';
+import { $Enums } from '@prisma/client';
 import z from 'zod';
 
 export namespace PrismaHelper {
   export function isRecordNotFoundError(e: any) {
     return (
-      e instanceof Prisma.PrismaClientKnownRequestError && e.code == 'P2025'
+      e && typeof e === 'object' && 'code' in e && (e as any).code === 'P2025'
     );
   }
 
   export function isUniqueConstraintFailed(e: any) {
     return (
-      e instanceof Prisma.PrismaClientKnownRequestError && e.code == 'P2002'
+      e && typeof e === 'object' && 'code' in e && (e as any).code === 'P2002'
     );
   }
 
-    export function isForeignConstraintFailed(e: any) {
+  export function isForeignConstraintFailed(e: any) {
     return (
-      e instanceof Prisma.PrismaClientKnownRequestError && e.code == 'P2003'
+      e && typeof e === 'object' && 'code' in e && (e as any).code === 'P2003'
     );
   }
 }
