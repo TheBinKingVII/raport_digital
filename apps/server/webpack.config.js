@@ -9,7 +9,8 @@ module.exports = {
   plugins: [
     new NxAppWebpackPlugin({
       target: 'node',
-      compiler: 'swc',
+      // Use TypeScript compiler to avoid class inheritance issues with PrismaClient
+      compiler: 'tsc',
       main: './src/main.ts',
       tsConfig: './tsconfig.app.json',
       assets: ['./src/assets'],
