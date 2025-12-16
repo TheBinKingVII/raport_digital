@@ -82,6 +82,7 @@
     "nx": "21.1.3",
     "prettier": "^2.6.2",
     "prisma": "^6.7.0",
+    "swc-loader": "^0.2.6",
     "trpc-ui": "npm:@levirs565/trpc-ui@^1.0.15",
     "ts-jest": "^29.1.0",
     "ts-node": "^10.9.1",
